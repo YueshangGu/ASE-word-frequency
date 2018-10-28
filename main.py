@@ -25,14 +25,15 @@ def get_args():
 
     argvs = preprocess_argv()
     params = parser.parse_args(argvs[1:])
-    params.d = params.s
+    # params.d = params.s  # 这句话导致 -d 功能失效
     return params
 
 
 if __name__ == '__main__':
     params = get_args()
-    if params.d:
-        operate_in_dir(params, params.d)
+    if params.d or params.s:
+        dir = params.d if params.d else params.s
+        operate_in_dir(params, dir)
     if params.p > 0:
         count_phrase_frequency(params.f, params)
     if params.c:

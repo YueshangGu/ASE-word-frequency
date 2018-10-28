@@ -30,9 +30,9 @@ def filter(s):
     return s
 
 
-def custom_print(name_list, num_list, num=None):
+def custom_print(name_list, num_list, num=None):  # if len(name_list) < num will cause error
     assert len(name_list) == len(num_list)
-    for i in range(num) if num else range(len(name_list)):
+    for i in range(min(len(name_list), num)) if num else range(len(name_list)):
         print(name_list[i], num_list[i])
 
 
@@ -69,6 +69,7 @@ def count_char_frequency(path, params):
 
 def count_word_frequency(path, params):
     assert os.path.exists(path)
+    print(path)
     word_cnt = word_counter()
 
     word_cnt.stop_word_table(params)
