@@ -55,11 +55,11 @@ def count_char_frequency(path, params):
 
     with io.open(path, 'r', newline='\n', errors='ignore', encoding='utf8') as src:
         lines = src.readlines()
-    for line in lines:
-        line = line.strip().lower()
-        for c in line:
-            if c in all_char:
-                ch_cnt.update(c)
+    article = ''.join(lines).lower()
+    for c in article:  # reduce some loop time( about 4 ms)
+        if c in all_char: # this will be call frequently, maybe we can count for all char but only summary for char we need
+            ch_cnt.char2cnt[c] += 1
+    # I change here because update() will be called frequently, it will save about 100ms for test_unit1-c
     char, cnt = ch_cnt.cnt2freq()
     if params.n >= 0:
         custom_print(char, cnt, params.n)
