@@ -30,10 +30,12 @@ def filter(s):
     return s
 
 
-def custom_print(name_list, num_list, num=None):  # if len(name_list) < num will cause error
+def custom_print(path, name_list, num_list, num=None):  # if len(name_list) < num will cause error
     assert len(name_list) == len(num_list)
+    print("File: %s" % (path))
     for i in range(min(len(name_list), num)) if num else range(len(name_list)):
-        print(name_list[i], num_list[i])
+        print("%40s\t%d"%(name_list[i], num_list[i]))
+    print('')
 
 
 def read_preposition(path):
@@ -62,9 +64,9 @@ def count_char_frequency(path, params):
     # I change here because update() will be called frequently, it will save about 100ms for test_unit1-c
     char, cnt = ch_cnt.cnt2freq()
     if params.n >= 0:
-        custom_print(char, cnt, params.n)
+        custom_print(path, char, cnt, params.n)
     else:
-        custom_print(char, cnt)
+        custom_print(path, char, cnt)
 
 
 def count_word_frequency(path, params):
@@ -84,9 +86,9 @@ def count_word_frequency(path, params):
             word_cnt.update(word)
     words, cnt = word_cnt.cnt2freq()
     if params.n >= 0:
-        custom_print(words, cnt, params.n)
+        custom_print(path, words, cnt, params.n)
     else:
-        custom_print(words, cnt)
+        custom_print(path, words, cnt)
 
 
 def operate_in_dir(params, dir):
@@ -101,7 +103,12 @@ def operate_in_dir(params, dir):
         if os.path.isdir(f) and recursive:
             operate_in_dir(params, f)
         elif not os.path.isdir(f):
-            count_word_frequency(f, params)
+            if params.p > 0:
+                count_phrase_frequency(f, params)
+            elif params.c:
+                count_char_frequency(f, params)
+            elif params.p == -1 and params.f:
+                count_word_frequency(f, params)
 
 
 def output_phrase_from_sentence(sen, params, phrase_cnt):
@@ -147,6 +154,6 @@ def count_phrase_frequency(path, params):
     phrases, cnts = phrase_cnt.cnt2frq()
 
     if params.n >= 0:
-        custom_print(phrases, cnts, params.n)
+        custom_print(path, phrases, cnts, params.n)
     else:
-        custom_print(params, cnts)
+        custom_print(path, phrases, cnts)

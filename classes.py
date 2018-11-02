@@ -38,10 +38,10 @@ class char_counter(object):
     def cnt2freq(self):
         char = [k for k in self.char2cnt.keys()]
         cnt = [v for v in self.char2cnt.values()]
-        self.total_cnt = sum(cnt)
+        # self.total_cnt = sum(cnt)
         index = sorted(range(len(cnt)), key=cnt.__getitem__, reverse=True)
         char = [char[i] for i in index]
-        cnt = [cnt[i] / self.total_cnt for i in index]
+        cnt = [cnt[i]  for i in index]
         return (char, cnt)
 
 
@@ -62,11 +62,11 @@ class word_counter(object):
     def cnt2freq(self):
         words = [k for k in self.word2cnt.keys()]
         cnt = [v for v in self.word2cnt.values()]
-        self.total_cnt = sum(cnt)
+        # self.total_cnt = sum(cnt)
         # index = sorted(range(len(cnt)),key=cnt.__getitem__, reverse=True)
         index = sorted(range(len(cnt)), key=lambda i: (-cnt[i], words[i]))
         words = [words[i] for i in index]
-        cnt = [cnt[i] / self.total_cnt for i in index]
+        cnt = [cnt[i]  for i in index]
         return (words, cnt)
 
     def stop_word_table(self, params):
@@ -95,10 +95,10 @@ class phrase_counter(object):
     def cnt2frq(self):
         phrases = [k for k in self.phrase2cnt.keys()]
         cnts = [v for v in self.phrase2cnt.values()]
-        self.total_cnt = sum(cnts)
+        # self.total_cnt = sum(cnts)
         index = sorted(range(len(cnts)), key=lambda i: (-cnts[i], phrases[i]))
         phrases = [phrases[i] for i in index]
-        cnts = [cnts[i] / self.total_cnt for i in index]
+        cnts = [cnts[i]  for i in index]
         return phrases, cnts
 
     def stop_word_table(self, params):
