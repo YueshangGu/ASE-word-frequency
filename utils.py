@@ -1,6 +1,5 @@
 import io
 import os
-import time
 from classes import char_counter
 from string import ascii_lowercase
 from string import ascii_letters
@@ -61,6 +60,7 @@ def count_char_frequency(path, params):
     for c in article:  # reduce some loop time( about 4 ms)
         if c in all_char: # this will be call frequently, maybe we can count for all char but only summary for char we need
             ch_cnt.char2cnt[c] += 1
+            # ch_cnt.update(c)
     # I change here because update() will be called frequently, it will save about 100ms for test_unit1-c
     char, cnt = ch_cnt.cnt2freq()
     if params.n >= 0:
