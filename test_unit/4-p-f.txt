@@ -1,0 +1,7 @@
+File: data/pride-and-prejudice.txt
+                               i am sure	62
+                                i do not	59
+                              as soon as	55
+                           she could not	50
+                             that he had	36
+
