@@ -1,4 +1,3 @@
-data/pride-and-prejudice.txt
 File: data/pride-and-prejudice.txt
                                      the	4507
                                       to	4243

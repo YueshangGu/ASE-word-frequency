@@ -1,0 +1,22 @@
+File: data\prepositions.txt
+                      aboard about above	1
+                      about above absent	1
+                     above absent across	1
+                     absent across after	1
+                    across after against	1
+
+File: data\pride-and-prejudice.txt
+                                i do not	82
+                               i be sure	64
+                              as soon as	55
+                               it be not	51
+                           she could not	50
+
+File: data\stopwords.txt
+                                a it the	1
+                           and this that	1
+                              it the and	1
+                            the and this	1
+
+File: data\verbs.txt
+
