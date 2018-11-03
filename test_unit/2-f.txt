@@ -1,0 +1,8 @@
+data/pride-and-prejudice.txt
+File: data/pride-and-prejudice.txt
+                                     the	4507
+                                      to	4243
+                                      of	3730
+                                     and	3658
+                                     her	2225
+

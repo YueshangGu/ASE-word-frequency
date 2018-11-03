@@ -33,7 +33,7 @@ def custom_print(path, name_list, num_list, num=None):  # if len(name_list) < nu
     assert len(name_list) == len(num_list)
     print("File: %s" % (path))
     for i in range(min(len(name_list), num)) if num else range(len(name_list)):
-        print("%40s\t%d"%(name_list[i], num_list[i]))
+        print("%40s\t%d" % (name_list[i], num_list[i]))
     print('')
 
 
@@ -58,7 +58,7 @@ def count_char_frequency(path, params):
         lines = src.readlines()
     article = ''.join(lines).lower()
     for c in article:  # reduce some loop time( about 4 ms)
-        if c in all_char: # this will be call frequently, maybe we can count for all char but only summary for char we need
+        if c in all_char:  # this will be call frequently, maybe we can count for all char but only summary for char we need
             ch_cnt.char2cnt[c] += 1
             # ch_cnt.update(c)
     # I change here because update() will be called frequently, it will save about 100ms for test_unit1-c
@@ -71,7 +71,7 @@ def count_char_frequency(path, params):
 
 def count_word_frequency(path, params):
     assert os.path.exists(path)
-    print(path)
+    # print(path)
     word_cnt = word_counter()
 
     word_cnt.stop_word_table(params)
@@ -107,7 +107,7 @@ def operate_in_dir(params, dir):
                 count_phrase_frequency(f, params)
             elif params.c:
                 count_char_frequency(f, params)
-            elif params.p == -1 and params.f:
+            elif params.p == -1 and (params.f or params.d or params.s):  # debug for regression test -d -s -n 5 data
                 count_word_frequency(f, params)
 
 

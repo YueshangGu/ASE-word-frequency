@@ -1,0 +1,49 @@
+File: data\aaa\prepositions.txt
+                                  aboard	1
+                                   about	1
+                                   above	1
+                                  absent	1
+                                  across	1
+
+File: data\aaa\pride-and-prejudice.txt
+                                     the	4507
+                                      to	4243
+                                      of	3730
+                                     and	3658
+                                     her	2225
+
+File: data\aaa\verbs.txt
+                                      re	24
+                                   cross	19
+                                  double	17
+                                   short	17
+                                      co	16
+
+File: data\prepositions.txt
+                                  aboard	1
+                                   about	1
+                                   above	1
+                                  absent	1
+                                  across	1
+
+File: data\pride-and-prejudice.txt
+                                     the	4507
+                                      to	4243
+                                      of	3730
+                                     and	3658
+                                     her	2225
+
+File: data\stopwords.txt
+                                       a	1
+                                     and	1
+                                      it	1
+                                    that	1
+                                     the	1
+
+File: data\verbs.txt
+                                      re	24
+                                   cross	19
+                                  double	17
+                                   short	17
+                                      co	16
+
